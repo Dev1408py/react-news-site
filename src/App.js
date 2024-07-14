@@ -18,7 +18,7 @@ function App() {
     <Router>
 
     <Navbar/>
-        <Route exact strict path="/">
+         <Route exact strict path="/">
             <News country="in" category="general"/>
         </Route>
         <Route exact strict path="/sports">
@@ -42,7 +42,7 @@ function App() {
         <Route exact strict path="/science">
             <News country="in" category="science"/>
         </Route>
-    
+     
     </Router>
   );
 }

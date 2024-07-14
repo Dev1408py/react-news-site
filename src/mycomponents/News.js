@@ -6,16 +6,12 @@ import Spinner from './Spinner';
 import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
 
-
-
-
 export default class news extends Component {
     
-
     constructor(){
         super();
         this.state = {
-            loading:true,
+            loading:true, 
             page:1, 
             page_size:10,
             total_res:0,
@@ -37,7 +33,7 @@ export default class news extends Component {
       let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=c52d924f788a43b18db86bda3a187712&page=${this.state.page}&pageSize=${this.state.page_size}`;
             this.setState({loading:true})
             let data = await fetch(url);
-            let parsed_data = await data.json();
+            let parsed_data = await data.json();    
             console.log(parsed_data);
             this.setState({articles: parsed_data.articles,loading:false});
     }
@@ -52,6 +48,7 @@ export default class news extends Component {
         this.setState({page:this.state.page+1})
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=c52d924f788a43b18db86bda3a187712&page=${this.state.page}&pageSize=${this.state.page_size}`;
           let data = await fetch(url);
+          console.log(data)
           let parsed_data = await data.json();
           this.setState({
             articles: this.state.articles.concat(parsed_data.articles),
